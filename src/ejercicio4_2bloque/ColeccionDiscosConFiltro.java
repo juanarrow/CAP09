@@ -13,7 +13,7 @@ public class ColeccionDiscosConFiltro extends ColeccionDiscos implements Listado
         Disco[] discosFiltrados = new Disco[discos.length];
         int ultimo = 0;
         for(int i = 0; i < discos.length; i++){
-            if(discos[i].getAutor().equals(autor)){
+            if(discos[i]!=null && discos[i].getAutor().equals(autor)){
                 discosFiltrados[ultimo]= discos[i];
                 ultimo++;
             }
@@ -26,7 +26,7 @@ public class ColeccionDiscosConFiltro extends ColeccionDiscos implements Listado
         Disco[] discosFiltrados = new Disco[discos.length];
         int ultimo = 0;
         for(int i = 0; i < discos.length; i++){
-            if(discos[i].getTitulo().equals(titulo)){
+            if(discos[i]!=null && discos[i].getTitulo().equals(titulo)){
                 discosFiltrados[ultimo]= discos[i];
                 ultimo++;
             }
@@ -39,7 +39,7 @@ public class ColeccionDiscosConFiltro extends ColeccionDiscos implements Listado
         Disco[] discosFiltrados = new Disco[discos.length];
         int ultimo = 0;
         for(int i = 0; i < discos.length; i++){
-            if(discos[i].getGenero().equals(genero)){
+            if(discos[i]!=null && discos[i].getGenero().equals(genero)){
                 discosFiltrados[ultimo]= discos[i];
                 ultimo++;
             }
@@ -52,7 +52,7 @@ public class ColeccionDiscosConFiltro extends ColeccionDiscos implements Listado
         Disco[] discosFiltrados = new Disco[discos.length];
         int ultimo = 0;
         for(int i = 0; i < discos.length; i++){
-            if(discos[i].getDuracion()>=minDuracion &&
+            if(discos[i]!=null && discos[i].getDuracion()>=minDuracion &&
             discos[i].getDuracion()<=maxDuracion){
                 discosFiltrados[ultimo]= discos[i];
                 ultimo++;

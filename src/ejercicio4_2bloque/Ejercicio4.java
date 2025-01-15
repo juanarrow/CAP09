@@ -22,6 +22,67 @@ public class Ejercicio4 {
             """);
     }
 
+    private static void menuListados(){
+        System.out.println("""
+                1. Completo
+                2. Por autor
+                3. Por género
+                4. En un rango de duración
+                5. Menú principal
+                """);
+    }
+    private static void listados(){
+        int opcion = -1;
+        do {
+            menuListados();
+            opcion = Integer.parseInt(System.console().readLine());
+            switch (opcion) {
+                case 1:{
+                        Disco[] discos = coleccion.consultar();
+                        for(int i = 0; i < discos.length; i++){
+                            if(discos[i]!=null)
+                                System.out.println(discos[i]);
+                        }
+                    }
+                    break;
+                case 2:{
+                        System.out.print("Introduzca el autor a buscar: ");
+                        String autor = System.console().readLine();
+                        Disco[] discos = coleccion.consultarPorAutor(autor);
+                        for(int i = 0; i < discos.length; i++){
+                            if(discos[i]!=null)
+                                System.out.println(discos[i]);
+                        }
+                    }
+                    break;
+                
+                case 3:{
+                        System.out.print("Introduzca el género a buscar: ");
+                        String titulo = System.console().readLine();
+                        Disco[] discos = coleccion.consultarPorGenero(titulo);
+                        for(int i = 0; i < discos.length; i++){
+                            if(discos[i]!=null)
+                                System.out.println(discos[i]);
+                        }
+                    }
+                    break;
+                case 4:{
+                        System.out.print("Introduzca la duración mínima: ");
+                        int minDuracion = Integer.parseInt(System.console().readLine());
+                        System.out.print("Introduzca la duración máxima: ");
+                        int maxDuracion = Integer.parseInt(System.console().readLine());
+                        Disco[] discos = coleccion.consultarPorDuracion(minDuracion, maxDuracion);
+                        for(int i = 0; i < discos.length; i++){
+                            if(discos[i]!=null)
+                                System.out.println(discos[i]);
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+        } while (opcion != 5);
+    }
     private static void listar(){
         Disco[] discos = coleccion.consultar();
         for(int i=0; i < discos.length; i++)
@@ -108,7 +169,7 @@ public class Ejercicio4 {
             opcion = Integer.parseInt(System.console().readLine());
             switch (opcion) {
                 case 1:
-                    listar();
+                    listados();
                     break;
                 case 2:
                     crear();
