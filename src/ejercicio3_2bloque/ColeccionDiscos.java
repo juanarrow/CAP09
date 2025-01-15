@@ -2,7 +2,7 @@ package ejercicio3_2bloque;
 
 public class ColeccionDiscos implements DiscosCrud{
 
-    private Disco[] discos;
+    protected Disco[] discos;
     public ColeccionDiscos(int tamanio){
         discos = new Disco[tamanio];
     }
@@ -46,6 +46,14 @@ public class ColeccionDiscos implements DiscosCrud{
     }
 
     @Override
+    public Disco consultarPorID(String id) {
+        int posicion = encontrarDisco(discos, id);
+        if(posicion != -1)
+            return discos[posicion];
+        return null;
+    }
+
+    @Override
     public Disco actualizar(String id, Disco d) {
         int posicion = encontrarDisco(discos, id);
         if(posicion!=-1){
@@ -66,12 +74,6 @@ public class ColeccionDiscos implements DiscosCrud{
         return null;
     }
 
-    @Override
-    public Disco consultarPorID(String id) {
-        int posicion = encontrarDisco(discos, id);
-        if(posicion != -1)
-            return discos[posicion];
-        return null;
-    }
+    
     
 }
